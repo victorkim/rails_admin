@@ -1,3 +1,11 @@
+module ActiveModel
+  class Name
+    def underscore
+      self.to_s.underscore
+    end
+  end
+end
+
 module RailsAdmin
   class AbstractModel
     cattr_accessor :all
