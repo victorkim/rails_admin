@@ -1,7 +1,11 @@
 module ActiveModel
   class Name
-    def underscore
-      self.to_s.underscore
+    def method_missing(sym, *args, &block)
+      if self.to_s.respond_to? sym, *args, &block
+        self.to_s.send sym, *args, &block
+      else
+        super
+      end
     end
   end
 end
